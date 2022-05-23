@@ -1,6 +1,6 @@
 import { OgrFoto } from './../models/OgrFoto';
 import { Kayit } from './../models/Kayit';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Ders } from '../models/Ders';
 import { Ogrenci } from '../models/Ogrenci';
@@ -18,7 +18,9 @@ export class ApiService {
   }
 
   tokenAl(kadi: string, parola:string){
-    var data = "username=akd&password=123&grant_type=password";
+    var data = "username=" +kadi+ "&password=" +parola+     "&grant_type=password";
+    var reqHeader = new HttpHeaders({"Content-Type":"application/x-www-form-urlencoded"});
+    return this.http.post(this.apiUrl+"/token",data,{headers:reqHeader});
   }
 
   /* Öğrenci API  */

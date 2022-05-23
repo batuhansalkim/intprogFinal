@@ -2,15 +2,36 @@
   <h2>Oturum Aç</h2>
   <mat-form-field appearance="outline" style="width: 50%;">
     <mat-label>Kullanıcı Adı</mat-label>
-    <input matInput placeholder="Kullanıcı Adı" type="text">
+    <input matInput placeholder="Kullanıcı Adı" type="text" #kadi>
   </mat-form-field>
 
   <mat-form-field appearance="outline" style="width: 50%;">
     <mat-label>Parola</mat-label>
-    <input matInput placeholder="Parola" type="password">
+    <input matInput placeholder="Parola" type="password" #parola>
   </mat-form-field>
-  <button mat-raised-button color="primary">Oturum Aç</button>
+  <button mat-raised-button color="primary" (click)="OturumAc(kadi.value,parola.value)">Oturum Aç</button>
 </div>
 
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="login.component.css">
+</head>
+<body>
 
-<h1>Batuhan Salkım</h1>
+  <form action="">
+    <h2>Giriş</h2>
+    <input type="text" name="eposta" placeholder="Kullanıcı Adı" #kadi>
+    <input type="password" name="sifre" placeholder="Parola" #parola>
+    <input type="submit" value="Giriş Yap" placeholder="Oturum Aç" (click)="OturumAc(kadi.value,parola.value)">
+  </form>
+  
+</body>
+</html> -->
+
+
+
