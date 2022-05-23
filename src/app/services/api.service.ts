@@ -23,6 +23,15 @@ export class ApiService {
     return this.http.post(this.apiUrl+"/token",data,{headers:reqHeader});
   }
 
+  OturumKontrol(){
+    if(localStorage.getItem("token")){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
   /* Öğrenci API  */
   OgrenciListe() {
     return this.http.get<Ogrenci[]>(this.apiUrl + "api/ogrenciliste");

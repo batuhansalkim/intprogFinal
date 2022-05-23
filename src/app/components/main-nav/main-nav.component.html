@@ -14,11 +14,20 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+      <button mat-button style="position: fixed; right: 90px;" [routerLink]="['/login']" *ngIf="!apiServis.OturumKontrol()">Oturum Aç</button>
+
+      <button mat-button style="position: fixed; right: 120px;" [routerLink]="['/uye']" *ngIf="apiServis.OturumKontrol()">
+      {{kadi}}</button>
+      
+      <button mat-button style="position: fixed; right:  5px;" (click)="OturumKapat()" *ngIf="apiServis.OturumKontrol()">
+        Oturumu Kapat</button>
+
       <span>uyg04-UI</span>
+      
     </mat-toolbar>
     <div class="container">
       <router-outlet></router-outlet>
     </div>
-
+    
   </mat-sidenav-content>
 </mat-sidenav-container>
