@@ -19,7 +19,14 @@ export class LoginComponent implements OnInit {
   }
   OturumAc(kadi:string,parola:string){
     this.apiServis.tokenAl(kadi,parola).subscribe((d:any)=>{
-      console.log(d);
+      localStorage.setItem("token",d.access_token);
+      localStorage.setItem("uid",d.uyeId);
+      localStorage.setItem("kadi",d.uyeKadi);
+      localStorage.setItem("uyeYetkileri",d.ueyYetkileri);
+      location.href="/";
+
+
+
     }, err=>{
       var s: Sonuc = new Sonuc();
       s.islem=false;
